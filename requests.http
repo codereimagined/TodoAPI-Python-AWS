@@ -1,0 +1,12 @@
+GET https://41pl7svxed.execute-api.us-east-1.amazonaws.com/prod/empl?id=afe178f9-f9bd-4c3f-98e5-7f59f94dde8c
+Accept: application/json
+###
+POST https://41pl7svxed.execute-api.us-east-1.amazonaws.com/prod/empl
+Content-Type: application/json
+
+{
+  "name": "James",
+  "Position": "Cloud Engineer Intern"
+}
+
+

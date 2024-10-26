@@ -4,7 +4,14 @@ __pycache__
 .pytest_cache
 .venv
 *.egg-info
-
+*.pyc
 # CDK asset staging directory
 .cdk.staging
 cdk.out
+
+
+
+# AWS credentials (make sure this is excluded if it's in the project directory)
+*.pem
+*.env
+
