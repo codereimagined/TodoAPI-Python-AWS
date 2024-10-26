@@ -2,6 +2,9 @@
 
 This project deploys a serverless REST API on AWS using AWS CDK (Cloud Development Kit) in Python. The API leverages API Gateway, Lambda functions, and DynamoDB to provide a simple REST interface for managing employee records.
 
+## Architecture
+![img.png](img.png)
+
 ## Features
 
 - **API Gateway**: Exposes a REST API with CORS enabled, allowing GET and POST methods.
@@ -101,3 +104,4 @@ The Lambda handler function (`index.handler`) processes incoming HTTP requests b
 This project was inspired by the Udemy course:  
 **[Course Title:AWS CDK for professionals (Python and TypeScript)](https://www.udemy.com/course/aws-cdk-for-professionals/)**  
 by [Alex Dan]
+
