@@ -7,7 +7,7 @@ from py_rest_api.py_rest_api_stack import PyRestApiStack
 
 
 app = cdk.App()
-PyRestApiStack(app, "PyRestApiStack",
+PyRestApiStack(app, "TodoAPIPythonStack",
     # If you don't specify 'env', this stack will be environment-agnostic.
     # Account/Region-dependent features and context lookups will not work,
     # but a single synthesized template can be deployed anywhere.
