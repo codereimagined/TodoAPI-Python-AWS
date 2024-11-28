@@ -38,6 +38,10 @@ class PyRestApiStack(Stack):
         todo_resource.add_method("GET", todo_lambda_integration)
         todo_resource.add_method("POST", todo_lambda_integration)
 
+        todo_id_resource = todo_resource.add_resource(path_part="{todo_id}")
+        todo_id_resource.add_method("GET", todo_lambda_integration)
+        todo_id_resource.add_method("DELETE", todo_lambda_integration)
+
 
 app = App()
 PyRestApiStack(app, "TodoAPIPythonStack",

@@ -1,29 +1,13 @@
 import json
-import boto3
-import os
-import uuid
 
-from flask import Flask, request, abort
+from flask import Flask, request
 
-# Environment and DynamoDB setup
-table_name = os.environ.get("TABLE_NAME")
-dynamodb = boto3.resource("dynamodb")
-table = dynamodb.Table(table_name)
-
-# Helper functions
-def add_new_item(item_data):
-    item_data["id"] = str(uuid.uuid4())
-    table.put_item(Item=item_data)
-    return {"id": item_data["id"]}
-
-def get_item_by_id(item_id):
-    response = table.get_item(Key={"id": item_id})
-    if "Item" in response:
-        return response["Item"]
-    return {"description": "Not found"}, 404
-
+from services.db import (
+    add_new_item, get_all_items, get_item_by_id, delete_item_by_id
+)
 
 app = Flask(__name__)
+
 
 @app.route("/api", methods=["POST"])
 def handle_post():
@@ -32,8 +16,16 @@ def handle_post():
 
 
 @app.route("/api", methods=["GET"])
-def handle_get():
-    item_id = request.args.get("id")
-    if item_id:
-        return get_item_by_id(item_id)
-    return {"description": "Missing item ID in query parameters"}, 400
+def handle_get_all():
+    return get_all_items()
+
+
+@app.route("/api/<todo_id>", methods=["GET"])
+def handle_get(todo_id):
+    return get_item_by_id(todo_id)
+
+
+@app.route("/api/<todo_id>", methods=["DELETE"])
+def handle_delete(todo_id):
+    delete_item_by_id(todo_id)
+    return '', 204
