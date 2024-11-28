@@ -1,6 +1,7 @@
 # IDEs
 .idea
 
+build
 *.swp
 package.json
 package-lock.json

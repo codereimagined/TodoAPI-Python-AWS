@@ -24,8 +24,8 @@ class PyRestApiStack(Stack):
             self,
             "TodoAPILambda",
             runtime=aws_lambda.Runtime.PYTHON_3_11,
-            code=aws_lambda.Code.from_asset("services"),
-            handler="index.handler",
+            code=aws_lambda.Code.from_asset("build/deployment.zip"),
+            handler="services.index.handler",
             environment={"TABLE_NAME": todo_table.table_name},
         )
 

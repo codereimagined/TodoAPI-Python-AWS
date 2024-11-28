@@ -90,6 +90,8 @@ The Lambda handler function (`index.handler`) processes incoming HTTP requests b
    npm install aws-cdk # Installing locally
 2. **create and activate a Virtual Environment (Optional but recommended)**
     ```bash
+    python3 -m venv .venv-deploy
+    ./build.sh
     python3 -m venv .venv && source .venv/bin/activate
 
 3. **Install Python dependencies**  
