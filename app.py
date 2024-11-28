@@ -32,13 +32,7 @@ class PyRestApiStack(Stack):
         todo_table.grant_read_write_data(todo_lambda)
 
         api = aws_apigateway.RestApi(self, "Todo-API-Python")
-        cors_options = aws_apigateway.CorsOptions(
-            allow_origins=aws_apigateway.Cors.ALL_ORIGINS,
-            allow_methods=aws_apigateway.Cors.ALL_METHODS,
-        )
-        todo_resource = api.root.add_resource(
-            "api", default_cors_preflight_options=cors_options
-        )
+        todo_resource = api.root.add_resource(path_part="api")
 
         todo_lambda_integration = aws_apigateway.LambdaIntegration(todo_lambda)
         todo_resource.add_method("GET", todo_lambda_integration)
