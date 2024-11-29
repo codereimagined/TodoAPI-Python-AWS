@@ -32,7 +32,8 @@ class PyRestApiStack(Stack):
         todo_table.grant_read_write_data(todo_lambda)
 
         api = aws_apigateway.RestApi(self, "Todo-API-Python")
-        todo_resource = api.root.add_resource(path_part="api")
+        api_resource = api.root.add_resource(path_part="api")
+        todo_resource = api_resource.add_resource(path_part="todos")
 
         todo_lambda_integration = aws_apigateway.LambdaIntegration(todo_lambda)
         todo_resource.add_method("GET", todo_lambda_integration)

@@ -4,7 +4,12 @@ import uuid
 
 # Environment and DynamoDB setup
 table_name = os.environ.get("TABLE_NAME")
-dynamodb = boto3.resource("dynamodb")
+dynamodb = boto3.resource('dynamodb')
+# In local dev we need to add DYNAMODB_ENDPOINT_URL=http://host.docker.internal:8000
+# We also need to make sure local DynamoDB is running and have table created, see README-local.md
+dynamodb_endpoint_url = os.environ.get("DYNAMODB_ENDPOINT_URL")
+if dynamodb_endpoint_url:
+    dynamodb = boto3.resource('dynamodb', endpoint_url=dynamodb_endpoint_url)
 table = dynamodb.Table(table_name)
 
 
