@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+import os
+
 from aws_cdk import (
     App,
     Stack,
@@ -20,13 +22,16 @@ class PyRestApiStack(Stack):
             ),
             billing=aws_dynamodb.Billing.on_demand(),
         )
+        environment = {"TABLE_NAME": todo_table.table_name}
+        if os.environ.get("ENV") == "local":
+            environment["DYNAMODB_ENDPOINT_URL"] = "http://host.docker.internal:8000"
         todo_lambda = aws_lambda.Function(
             self,
             "TodoAPILambda",
             runtime=aws_lambda.Runtime.PYTHON_3_11,
             code=aws_lambda.Code.from_asset("build/deployment.zip"),
             handler="services.index.handler",
-            environment={"TABLE_NAME": todo_table.table_name},
+            environment=environment,
         )
 
         todo_table.grant_read_write_data(todo_lambda)

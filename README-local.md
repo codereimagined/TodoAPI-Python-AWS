@@ -11,5 +11,6 @@ aws dynamodb create-table \
 
 aws dynamodb list-tables --endpoint-url http://localhost:8000
 
+ENV=local ./node_modules/aws-cdk/bin/cdk bootstrap
 sam local start-api -t ./cdk.out/TodoAPIPythonStack.template.json
 ```
