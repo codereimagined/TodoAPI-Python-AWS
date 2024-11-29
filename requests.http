@@ -1,12 +1,16 @@
-GET https://41pl7svxed.execute-api.us-east-1.amazonaws.com/prod/empl?id=afe178f9-f9bd-4c3f-98e5-7f59f94dde8c
+GET https://pfya346u6a.execute-api.us-east-1.amazonaws.com/prod/api
 Accept: application/json
 ###
-POST https://41pl7svxed.execute-api.us-east-1.amazonaws.com/prod/empl
+GET https://pfya346u6a.execute-api.us-east-1.amazonaws.com/prod/api/79b7be45-f431-4dbb-8789-62465ab6c48d
+Accept: application/json
+###
+POST https://pfya346u6a.execute-api.us-east-1.amazonaws.com/prod/api
 Content-Type: application/json
 
 {
-  "name": "James",
-  "Position": "Cloud Engineer Intern"
+  "item": "Buy coffee",
+  "completedAt": ""
 }
-
-
+###
+DELETE https://pfya346u6a.execute-api.us-east-1.amazonaws.com/prod/api/c72b2991-4381-4e1f-bfda-b2031a7b7409
+Accept: application/json

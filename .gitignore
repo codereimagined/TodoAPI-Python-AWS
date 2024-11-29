@@ -1,5 +1,11 @@
+# IDEs
+.idea
+
+build
 *.swp
+package.json
 package-lock.json
+node_modules
 __pycache__
 .pytest_cache
 .venv
@@ -9,9 +15,6 @@ __pycache__
 .cdk.staging
 cdk.out
 
-
-
 # AWS credentials (make sure this is excluded if it's in the project directory)
 *.pem
 *.env
-
