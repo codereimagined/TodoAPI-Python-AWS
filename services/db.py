@@ -14,9 +14,9 @@ table = dynamodb.Table(table_name)
 
 
 # Helper functions
-def add_new_item(item_data):
+def add_new_item(item_data, db_table=table):
     item_data["id"] = str(uuid.uuid4())
-    table.put_item(Item=item_data)
+    db_table.put_item(Item=item_data)
     return {"id": item_data["id"]}
 
 
