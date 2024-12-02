@@ -22,7 +22,9 @@ def handle_get_all():
 
 @app.route("/api/todos/<todo_id>", methods=["GET"])
 def handle_get(todo_id):
-    return get_item_by_id(todo_id)
+    item = get_item_by_id(todo_id)
+    return item if item else {"description": "Not found"}, 404
+
 
 
 @app.route("/api/todos/<todo_id>", methods=["DELETE"])
