@@ -1,10 +1,10 @@
-GET https://pfya346u6a.execute-api.us-east-1.amazonaws.com/prod/api/todos
+GET https://e9aipuh9r3.execute-api.us-east-1.amazonaws.com/prod/api/todos
 Accept: application/json
 ###
-GET https://pfya346u6a.execute-api.us-east-1.amazonaws.com/prod/api/todos/79b7be45-f431-4dbb-8789-62465ab6c48d
+GET https://e9aipuh9r3.execute-api.us-east-1.amazonaws.com/prod/api/todos/79b7be45-f431-4dbb-8789-62465ab6c48d
 Accept: application/json
 ###
-POST https://pfya346u6a.execute-api.us-east-1.amazonaws.com/prod/api/todos
+POST https://e9aipuh9r3.execute-api.us-east-1.amazonaws.com/prod/api/todos
 Content-Type: application/json
 
 {
@@ -12,7 +12,7 @@ Content-Type: application/json
   "completedAt": ""
 }
 ###
-DELETE https://pfya346u6a.execute-api.us-east-1.amazonaws.com/prod/api/todos/c72b2991-4381-4e1f-bfda-b2031a7b7409
+DELETE https://e9aipuh9r3.execute-api.us-east-1.amazonaws.com/prod/api/todos/c72b2991-4381-4e1f-bfda-b2031a7b7409
 Accept: application/json
 
 ### LOCAL
