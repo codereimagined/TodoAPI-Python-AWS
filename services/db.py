@@ -27,10 +27,10 @@ def get_item_by_id(item_id, db_table=table):
     return None
 
 
-def delete_item_by_id(item_id):
-    table.delete_item(Key={"id": item_id})
+def delete_item_by_id(item_id, db_table=table):
+    db_table.delete_item(Key={"id": item_id})
 
 
-def get_all_items():
-    response = table.scan()
+def get_all_items(db_table=table):
+    response = db_table.scan()
     return response["Items"]

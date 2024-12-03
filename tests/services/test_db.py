@@ -1,6 +1,5 @@
 import os
 import unittest
-from logging import ERROR
 from unittest.mock import MagicMock
 
 os.environ['TABLE_NAME'] = 'test_table'
@@ -38,6 +37,20 @@ class DBTestCase(unittest.TestCase):
 
         self.assertIsNotNone(item)
         self.assertEqual(item, {"id": "existent"})
+
+    def test_delete_item_by_id(self):
+        mock_table = MagicMock()
+
+        db.delete_item_by_id("some_id", mock_table)
+
+    def test_get_all_items(self):
+        mock_table = MagicMock()
+        mock_table.scan.return_value = {"Items": [{"id": "existent1"}, {"id": "existent2"}]}
+
+        items = db.get_all_items(mock_table)
+
+        self.assertEqual(len(items), 2)
+        mock_table.scan.assert_called_once()
 
 
 if __name__ == '__main__':
