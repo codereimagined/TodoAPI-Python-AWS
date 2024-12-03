@@ -9,7 +9,7 @@ python3 -m venv .venv-deploy-aws
 . ./.venv-deploy-aws/bin/activate
 pip install -r requirements-deploy.txt
 deactivate
-cd .venv-deploy/lib/python3.11/site-packages
+cd .venv-deploy-aws/lib/python3.11/site-packages
 zip -r ../../../../build/deployment.zip .
 cd ../../../../
 zip -g build/deployment.zip -r services
