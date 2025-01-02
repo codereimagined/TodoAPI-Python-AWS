@@ -41,7 +41,9 @@ class DBTestCase(unittest.TestCase):
     def test_delete_item_by_id(self):
         mock_table = MagicMock()
 
-        db.delete_item_by_id("some_id", mock_table)
+        result = db.delete_item_by_id("some_id", mock_table)
+
+        self.assertIsNone(result)
 
     def test_get_all_items(self):
         mock_table = MagicMock()
